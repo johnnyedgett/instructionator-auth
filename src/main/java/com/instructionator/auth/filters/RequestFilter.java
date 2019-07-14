@@ -20,14 +20,9 @@ public class RequestFilter extends ZuulFilter {
 		if(SecurityContextHolder.getContext().getAuthentication() instanceof AnonymousAuthenticationToken) {
 			// do nothing, user is not authenticated
 		} else {
-			LOG.info("Ran in the request filter.");
-			LOG.info("Ran in the request filter.");
-			LOG.info("Ran in the request filter.");
-			LOG.info("Ran in the request filter.");
-			LOG.info("Ran in the request filter.");
-			String customerId = String.valueOf(((UserPrincipal) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId());
+			String userId = String.valueOf(((UserPrincipal) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId());
 			RequestContext ctx = RequestContext.getCurrentContext();
-				ctx.addZuulRequestHeader("CUSTOMERID", customerId);
+				ctx.addZuulRequestHeader("USERID", userId);
 		}
 		return null;
 	}
