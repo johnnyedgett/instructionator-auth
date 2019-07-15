@@ -23,7 +23,7 @@ public class SessionAuthenticationFilter extends OncePerRequestFilter {
 			SecurityContext sc = SecurityContextHolder.getContext();
 			
 			if(!(sc.getAuthentication() instanceof AnonymousAuthenticationToken)) {
-				LOG.info("Curious when this will run... ");
+				
 			} else {
 				// Can do something else here with the unauthenticated user
 			}
